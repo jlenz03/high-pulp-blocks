@@ -25,6 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function high_pulp_blocks_high_pulp_blocks_block_init() {
-	register_block_type( __DIR__ . '/build' );
+	register_block_type( __DIR__ . '/build/blocks/testimonial' );
+	//add for every block in this plugin
+
 }
 add_action( 'init', 'high_pulp_blocks_high_pulp_blocks_block_init' );

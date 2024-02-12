@@ -1,12 +1,12 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "name": "jl/high-pulp-blocks",
+  "name": "jl/testimonial",
   "version": "0.1.0",
-  "title": "High Pulp Blocks",
+  "title": "Pulpy Testimonial",
   "category": "widgets",
   "icon": "testimonial",
-  "description": "Add some extra pulp to your site with these 100% original blocks",
+  "description": "extra pulpy testimonial",
   "example": {},
   "supports": {
     "html": false
@@ -15,5 +15,11 @@
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
-  "viewScript": "file:./view.js"
+  "viewScript": "file:./view.js",
+  "keywords": [
+    "testimonial",
+    "jl",
+    "hera",
+    "pulp"
+  ]
 }
