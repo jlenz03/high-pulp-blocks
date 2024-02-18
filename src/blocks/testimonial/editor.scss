@@ -1,0 +1,8 @@
+@import "../../scss/variables";
+
+wp-block-jl-testimonial{
+  border: 2px dashed #f00;
+  textarea, input[type=text] {
+	background-color: $bg-light;
+  }
+}

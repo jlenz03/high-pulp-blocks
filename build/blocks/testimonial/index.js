@@ -19,6 +19,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/testimonial/editor.scss");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_StarRating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/StarRating */ "./src/components/StarRating.js");
 
 /**
  * Retrieves the translation of text.
@@ -43,6 +46,8 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
+
+
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -51,27 +56,89 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit() {
+function Edit(props) {
+  // const attributes = props.attributes;
+  const {
+    attributes,
+    setAttributes
+  } = props;
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "stars"
-  }, "\u2605\u2605\u2605"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "quote"
-  }, "I love cake."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: "Select a Rating",
+    value: attributes.stars,
+    onChange: stars => setAttributes({
+      stars: parseInt(stars)
+    }),
+    options: [{
+      value: 1,
+      label: '★'
+    }, {
+      value: 2,
+      label: '★★'
+    }, {
+      value: 3,
+      label: '★★★'
+    }, {
+      value: 4,
+      label: '★★★★'
+    }, {
+      value: 5,
+      label: '★★★★★'
+    }]
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_StarRating__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    rating: attributes.stars,
+    setRating: stars => setAttributes({
+      stars: parseInt(stars)
+    })
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "quote",
+    tagName: "div",
+    place: "I love cake",
+    value: attributes.quote
+    // onChange={ ( content ) => setAttributes( { quote: content } ) }
+    ,
+    onChange: quote => setAttributes({
+      quote
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "quote-profile"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "photo"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://placehold.it/75",
-    alt: "Photo of Eric Foreman"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
+    allowedTypes: 'image',
+    onSelect: file => {
+      console.log(file);
+      setAttributes({
+        imgUrl: file.sizes.thumbnail.url
+      });
+    },
+    render: ({
+      open
+    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: attributes.imgUrl,
+      alt: "upload a photo",
+      onClick: open
+    })
+  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "author"
-  }, "Eric Foreman"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "location"
-  }, "Point Place, WI"))));
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
+    cassName: "author",
+    placeholder: "Sky the Cat",
+    value: attributes.author,
+    onChange: author => setAttributes({
+      author
+    })
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
+    cassName: "location",
+    placeholder: "My Room",
+    value: attributes.location,
+    onChange: location => setAttributes({
+      location
+    })
+  }))));
 }
 
 /***/ }),
@@ -162,28 +229,70 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function save() {
+function save({
+  attributes
+}) {
+  let starIcons = Array(5).fill('★', 0, attributes.stars).join('');
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save()
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "stars"
-  }, "\u2605\u2605\u2605"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "quote"
-  }, "I love cake."), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, starIcons), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
+    className: "quote",
+    tagName: "div",
+    value: attributes.quote
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "quote-profile"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "photo"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: "https://placehold.it/75",
+    src: attributes.imgUrl,
     alt: "Photo of Eric Foreman"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "text"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "author"
-  }, "Eric Foreman"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+  }, attributes.author), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "location"
-  }, "Point Place, WI"))));
+  }, attributes.location))));
 }
+
+/***/ }),
+
+/***/ "./src/components/StarRating.js":
+/*!**************************************!*\
+  !*** ./src/components/StarRating.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ StarRating)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _StarRating_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.scss */ "./src/components/StarRating.scss");
+
+
+
+function StarRating({
+  rating,
+  setRating
+}) {
+  const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "stars"
+  }, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: star <= hover ? 'star on' : 'star off',
+    onClick: () => {
+      setRating(star);
+    },
+    onMouseEnter: () => setHover(star),
+    onMouseLeave: () => setHover(rating)
+  }, "\u2605")));
+}
+
+// <StarRating rating="3" setRating={fn} />
 
 /***/ }),
 
@@ -203,6 +312,18 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************!*\
   !*** ./src/blocks/testimonial/style.scss ***!
   \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/components/StarRating.scss":
+/*!****************************************!*\
+  !*** ./src/components/StarRating.scss ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -241,6 +362,16 @@ module.exports = window["wp"]["blocks"];
 
 /***/ }),
 
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["components"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -257,7 +388,7 @@ module.exports = window["wp"]["i18n"];
   \*******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jl/testimonial","version":"0.1.0","title":"Pulpy Testimonial","category":"widgets","icon":"testimonial","description":"extra pulpy testimonial","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["testimonial","jl","hera","pulp"]}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jl/testimonial","version":"0.1.0","title":"Pulpy Testimonial","category":"widgets","icon":"testimonial","description":"extra pulpy testimonial","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["testimonial","jl","hera","pulp"],"attributes":{"quote":{"type":"string","source":"html","selector":".quote"},"stars":{"type":"number","default":3},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"author":{"type":"string","source":"text","selector":".author"},"location":{"type":"string","source":"text","selector":".location"}}}');
 
 /***/ })
 

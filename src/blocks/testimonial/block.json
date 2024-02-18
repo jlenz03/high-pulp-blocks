@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jl/testimonial",
+	"version": "0.1.0",
+	"title": "Pulpy Testimonial",
+	"category": "widgets",
+	"icon": "testimonial",
+	"description": "extra pulpy testimonial",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "high-pulp-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+  	"keywords": ["testimonial", "jl", "hera", "pulp"],
+  "attributes": {
+	"quote": {
+	  "type": "string",
+	  "source" : "html",
+	  "selector" : ".quote"
+	},
+	"stars": {
+	  "type": "number",
+	  "default": 3
+	},
+	"imgUrl": {
+	  "type": "string",
+	  "default": "https://placehold.it/75"
+	},
+	"author": {
+	  "type": "string",
+	  "source": "text",
+	  "selector": ".author"
+	},
+	"location": {
+	  "type": "string",
+	  "source": "text",
+	  "selector": ".location"
+	}
+
+  }
+}
