@@ -1,7 +1,12 @@
 <?php
 /**
+ *
  * @see https://github.com/WordPress/gutenberg/blob/trunk/docs/reference-guides/block-api/block-metadata.md#render
+* @var array $attributes
+* @var string $contents
+* @var WP_Block $block
  */
+
 $query = new WP_Query([
 	'post_type' => 'staff',
 	'orderby' => 'post_title',
@@ -17,10 +22,10 @@ $query = new WP_Query([
 			<div class="flip-card-front">
 				<?= get_the_post_thumbnail()?>
 			</div>
-			<div class="flip-card-back">
+			<div class="flip-card-back" style="background-color: <?= $attributes['cardColor'] ?>">
 				<h3 class="name"><?= get_the_title()?></h3>
-				<div class="position"><?= get_post_meta(get_the_ID(), 'staff_position', true)?></div>
-				<div class="bio">
+				<div class="position" style="color: <?= $attributes['headingColor'] ?>"><?= get_post_meta(get_the_ID(), 'staff_position', true)?></div>
+				<div class="bio" style="color: <?= $attributes['textColor'] ?>">
 					<p><?= get_the_excerpt()?></p>
 				</div>
 			</div>

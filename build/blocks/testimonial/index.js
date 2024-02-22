@@ -24,54 +24,10 @@ __webpack_require__.r(__webpack_exports__);
 
 class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) {
   render() {
-    const {
-      attributes,
-      setAttributes
-    } = this.props;
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
       title: "Basic",
       initialOpen: true
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-      label: "Quote Background Color",
-      value: attributes.backgroundColorClass,
-      onChange: backgroundColorClass => setAttributes({
-        backgroundColorClass
-      }),
-      options: [{
-        value: '',
-        label: 'Default'
-      }, {
-        value: 'bg-primary-blue',
-        label: 'Primary Blue'
-      }, {
-        value: 'bg-primary-red',
-        label: 'Primary Red'
-      }, {
-        value: 'pretty-lilac',
-        label: 'Lilac'
-      }, {
-        value: 'baby-blue',
-        label: 'Baby Blue'
-      }]
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Border Color", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
-      colors: [{
-        name: 'lilac',
-        color: '#b1b1f5'
-      }, {
-        name: 'baby blue',
-        color: '#60aff1'
-      }],
-      value: attributes.borderColor,
-      onChange: borderColor => setAttributes({
-        borderColor
-      }),
-      disableCustomColors: true
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "textColor"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
-      color: attributes.textColor,
-      onChange: textColor => setAttributes({
-        textColor
-      })
-    }))));
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Starter Demo!")));
   }
 }
 

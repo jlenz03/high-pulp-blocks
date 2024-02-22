@@ -124,13 +124,25 @@ function Edit({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: "https://2.gravatar.com/avatar/ea8b076b398ee48b71cfaecf898c582b?s=250&d=mm&r=g"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flip-card-back"
+    className: "flip-card-back",
+    style: {
+      backgroundColor: attributes.cardColor
+    }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
-    className: "name"
+    className: "name",
+    style: {
+      color: attributes.headingColor
+    }
   }, "Red Forman"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "position"
+    className: "position",
+    style: {
+      color: attributes.textColor
+    }
   }, "Manager"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bio"
+    className: "bio",
+    style: {
+      color: attributes.textColor
+    }
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If I Was A Bird, I\u2019d Fly Into A Ceiling Fan."))))));
 }
 
