@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jl/staff-list",
+	"version": "0.1.0",
+	"title": "Staff List",
+	"category": "design",
+	"icon": "id",
+	"description": "Display custom stagg post type",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "staff-list",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js",
+  	"keywords": ["tk", "pulp", "staff"],
+  	"attributes": {
+	  "cardColor" : {
+		"type" : "string"
+	  },
+	  "headingColor" : {
+		"type" : "string"
+	  },
+	  "textColor" : {
+		"type" : "string"
+	  }
+	}
+}

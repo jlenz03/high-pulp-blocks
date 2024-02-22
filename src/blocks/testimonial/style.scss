@@ -1,4 +1,5 @@
 
+@import"bootstrap/scss/bootstrap";
 @import "../../scss/variables";
 
 .wp-block-jl-testimonial {
@@ -14,6 +15,13 @@
 
   &.bg-primary-red {
 	background-color: $primary-red;
+  }
+  &.pretty-lilac {
+	background-color: #b1b1f5;
+
+  }&.baby-blue {
+	background-color: #60aff1;
+
   }
 
   .stars {

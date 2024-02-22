@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/blocks/testimonial/BlockSettings.js":
-/*!*************************************************!*\
-  !*** ./src/blocks/testimonial/BlockSettings.js ***!
-  \*************************************************/
+/***/ "./src/blocks/staff-list/BlockSettings.js":
+/*!************************************************!*\
+  !*** ./src/blocks/staff-list/BlockSettings.js ***!
+  \************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -28,59 +28,37 @@ class BlockSettings extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       attributes,
       setAttributes
     } = this.props;
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-      title: "Basic",
-      initialOpen: true
-    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.SelectControl, {
-      label: "Quote Background Color",
-      value: attributes.backgroundColorClass,
-      onChange: backgroundColorClass => setAttributes({
-        backgroundColorClass
-      }),
-      options: [{
-        value: '',
-        label: 'Default'
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PanelColorSettings, {
+      title: "Colors",
+      colorSettings: [{
+        label: "Card Color",
+        value: attributes.cardColor,
+        onChange: cardColor => setAttributes({
+          cardColor
+        })
       }, {
-        value: 'bg-primary-blue',
-        label: 'Primary Blue'
+        label: "Heading Color",
+        value: attributes.headingColor,
+        onChange: headingColor => setAttributes({
+          headingColor
+        })
       }, {
-        value: 'bg-primary-red',
-        label: 'Primary Red'
-      }, {
-        value: 'pretty-lilac',
-        label: 'Lilac'
-      }, {
-        value: 'baby-blue',
-        label: 'Baby Blue'
+        label: "Text Color",
+        value: attributes.textColor,
+        onChange: textColor => setAttributes({
+          textColor
+        })
       }]
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "Border Color", (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPalette, {
-      colors: [{
-        name: 'lilac',
-        color: '#b1b1f5'
-      }, {
-        name: 'baby blue',
-        color: '#60aff1'
-      }],
-      value: attributes.borderColor,
-      onChange: borderColor => setAttributes({
-        borderColor
-      }),
-      disableCustomColors: true
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, "textColor"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ColorPicker, {
-      color: attributes.textColor,
-      onChange: textColor => setAttributes({
-        textColor
-      })
-    }))));
+    }));
   }
 }
 
 /***/ }),
 
-/***/ "./src/blocks/testimonial/edit.js":
-/*!****************************************!*\
-  !*** ./src/blocks/testimonial/edit.js ***!
-  \****************************************/
+/***/ "./src/blocks/staff-list/edit.js":
+/*!***************************************!*\
+  !*** ./src/blocks/staff-list/edit.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -93,11 +71,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/testimonial/editor.scss");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _components_StarRating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/StarRating */ "./src/components/StarRating.js");
-/* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/testimonial/BlockSettings.js");
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./editor.scss */ "./src/blocks/staff-list/editor.scss");
+/* harmony import */ var _BlockSettings__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./BlockSettings */ "./src/blocks/staff-list/BlockSettings.js");
 
 /**
  * Retrieves the translation of text.
@@ -123,9 +98,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -134,94 +106,48 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @return {Element} Element to render.
  */
-function Edit(props) {
-  // const attributes = props.attributes;
-  const {
-    attributes,
-    setAttributes
-  } = props;
-  const divStyles = {
-    borderColor: attributes.borderColor,
-    color: attributes.textColor
-  };
+function Edit({
+  attributes,
+  setAttributes
+}) {
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: attributes.backgroundColorClass,
-      style: divStyles
-    })
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BlockSettings__WEBPACK_IMPORTED_MODULE_6__.BlockSettings, {
+    ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)()
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_BlockSettings__WEBPACK_IMPORTED_MODULE_4__.BlockSettings, {
     attributes: attributes,
     setAttributes: setAttributes
   }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "stars"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_StarRating__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    rating: attributes.stars,
-    setRating: stars => setAttributes({
-      stars: parseInt(stars)
-    })
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
-    className: "quote",
-    tagName: "div",
-    place: "I love cake",
-    value: attributes.quote
-    // onChange={ ( content ) => setAttributes( { quote: content } ) }
-    ,
-    onChange: quote => setAttributes({
-      quote
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "quote-profile"
+    className: "flip-card"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "photo"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUploadCheck, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaUpload, {
-    allowedTypes: 'image',
-    onSelect: file => {
-      console.log(file);
-      setAttributes({
-        imgUrl: file.sizes.thumbnail.url
-      });
-    },
-    render: ({
-      open
-    }) => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-      src: attributes.imgUrl,
-      alt: "upload a photo",
-      onClick: open
-    })
-  }))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "text"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
-    className: "author",
-    placeholder: "Sky the Cat",
-    value: attributes.author,
-    onChange: author => setAttributes({
-      author
-    })
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.PlainText, {
-    className: "location",
-    placeholder: "My Room",
-    value: attributes.location,
-    onChange: location => setAttributes({
-      location
-    })
-  }))));
+    className: "flip-card-inner"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card-front"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: "https://2.gravatar.com/avatar/ea8b076b398ee48b71cfaecf898c582b?s=250&d=mm&r=g"
+  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flip-card-back"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+    className: "name"
+  }, "Red Forman"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "position"
+  }, "Manager"), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bio"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "If I Was A Bird, I\u2019d Fly Into A Ceiling Fan."))))));
 }
 
 /***/ }),
 
-/***/ "./src/blocks/testimonial/index.js":
-/*!*****************************************!*\
-  !*** ./src/blocks/testimonial/index.js ***!
-  \*****************************************/
+/***/ "./src/blocks/staff-list/index.js":
+/*!****************************************!*\
+  !*** ./src/blocks/staff-list/index.js ***!
+  \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/testimonial/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/blocks/testimonial/edit.js");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/blocks/testimonial/save.js");
-/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/blocks/testimonial/block.json");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./src/blocks/staff-list/style.scss");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/blocks/staff-list/edit.js");
+/* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./block.json */ "./src/blocks/staff-list/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -238,11 +164,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 
-
 /**
  * Internal dependencies
  */
-
 
 
 
@@ -251,140 +175,18 @@ __webpack_require__.r(__webpack_exports__);
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
-(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_4__.name, {
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)(_block_json__WEBPACK_IMPORTED_MODULE_3__.name, {
   /**
    * @see ./edit.js
    */
-  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  /**
-   * @see ./save.js
-   */
-  save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
+  edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 
 /***/ }),
 
-/***/ "./src/blocks/testimonial/save.js":
-/*!****************************************!*\
-  !*** ./src/blocks/testimonial/save.js ***!
-  \****************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ save)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
-/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-
-/**
- * React hook that is used to mark the block wrapper element.
- * It provides all the necessary props like the class name.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
- */
-
-
-/**
- * The save function defines the way in which the different attributes should
- * be combined into the final markup, which is then serialized by the block
- * editor into `post_content`.
- *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#save
- *
- * @return {Element} Element to render.
- */
-function save({
-  attributes
-}) {
-  let starIcons = Array(5).fill('★', 0, attributes.stars).join('');
-  const divStyles = {
-    borderColor: attributes.borderColor,
-    color: attributes.textColor
-  };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    ..._wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save({
-      className: attributes.backgroundColorClass,
-      style: divStyles
-    })
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "stars"
-  }, starIcons), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText.Content, {
-    className: "quote",
-    tagName: "div",
-    value: attributes.quote
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "quote-profile"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "photo"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: attributes.imgUrl,
-    alt: "Photo of Eric Foreman"
-  })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "text"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "author"
-  }, attributes.author), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
-    className: "location"
-  }, attributes.location))));
-}
-
-/***/ }),
-
-/***/ "./src/components/StarRating.js":
-/*!**************************************!*\
-  !*** ./src/components/StarRating.js ***!
-  \**************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ StarRating)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _StarRating_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRating.scss */ "./src/components/StarRating.scss");
-
-
-
-function StarRating({
-  rating,
-  setRating
-}) {
-  const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "stars"
-  }, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: star <= hover ? 'star on' : 'star off',
-    onClick: () => {
-      setRating(star);
-    },
-    onMouseEnter: () => setHover(star),
-    onMouseLeave: () => setHover(rating)
-  }, "\u2605")));
-}
-
-// <StarRating rating="3" setRating={fn} />
-
-/***/ }),
-
-/***/ "./src/blocks/testimonial/editor.scss":
-/*!********************************************!*\
-  !*** ./src/blocks/testimonial/editor.scss ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-
-/***/ "./src/blocks/testimonial/style.scss":
+/***/ "./src/blocks/staff-list/editor.scss":
 /*!*******************************************!*\
-  !*** ./src/blocks/testimonial/style.scss ***!
+  !*** ./src/blocks/staff-list/editor.scss ***!
   \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -394,10 +196,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/StarRating.scss":
-/*!****************************************!*\
-  !*** ./src/components/StarRating.scss ***!
-  \****************************************/
+/***/ "./src/blocks/staff-list/style.scss":
+/*!******************************************!*\
+  !*** ./src/blocks/staff-list/style.scss ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -456,13 +258,13 @@ module.exports = window["wp"]["i18n"];
 
 /***/ }),
 
-/***/ "./src/blocks/testimonial/block.json":
-/*!*******************************************!*\
-  !*** ./src/blocks/testimonial/block.json ***!
-  \*******************************************/
+/***/ "./src/blocks/staff-list/block.json":
+/*!******************************************!*\
+  !*** ./src/blocks/staff-list/block.json ***!
+  \******************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jl/testimonial","version":"0.1.0","title":"Pulpy Testimonial","category":"widgets","icon":"testimonial","description":"extra pulpy testimonial","example":{},"supports":{"html":false},"textdomain":"high-pulp-blocks","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","viewScript":"file:./view.js","keywords":["testimonial","jl","hera","pulp"],"attributes":{"quote":{"type":"string","source":"html","selector":".quote"},"stars":{"type":"number","default":3},"imgUrl":{"type":"string","default":"https://placehold.it/75"},"author":{"type":"string","source":"text","selector":".author"},"location":{"type":"string","source":"text","selector":".location"},"backgroundColorClass":{"type":"string"},"borderColor":{"type":"string"},"textColor":{"type":"string"}}}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"jl/staff-list","version":"0.1.0","title":"Staff List","category":"design","icon":"id","description":"Display custom stagg post type","example":{},"supports":{"html":false},"textdomain":"staff-list","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css","render":"file:./render.php","viewScript":"file:./view.js","keywords":["tk","pulp","staff"],"attributes":{"cardColor":{"type":"string"},"headingColor":{"type":"string"},"textColor":{"type":"string"}}}');
 
 /***/ })
 
@@ -576,8 +378,8 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
-/******/ 			"blocks/testimonial/index": 0,
-/******/ 			"blocks/testimonial/style-index": 0
+/******/ 			"blocks/staff-list/index": 0,
+/******/ 			"blocks/staff-list/style-index": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -627,7 +429,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/testimonial/style-index"], () => (__webpack_require__("./src/blocks/testimonial/index.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["blocks/staff-list/style-index"], () => (__webpack_require__("./src/blocks/staff-list/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
