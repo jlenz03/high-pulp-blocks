@@ -45,6 +45,15 @@
       "type": "string",
       "source": "text",
       "selector": ".location"
+    },
+    "backgroundColorClass": {
+      "type": "string"
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "textColor": {
+      "type": "string"
     }
   }
 }

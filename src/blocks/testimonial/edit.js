@@ -11,7 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import {useBlockProps, RichText, PlainText, MediaUploadCheck, MediaUpload} from '@wordpress/block-editor';
+import {
+	useBlockProps,
+	RichText,
+	PlainText,
+	MediaUploadCheck,
+	MediaUpload,
+	InspectorControls
+} from '@wordpress/block-editor';
 
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -20,8 +27,10 @@ import {useBlockProps, RichText, PlainText, MediaUploadCheck, MediaUpload} from 
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import {SelectControl} from "@wordpress/components";
+import {PanelBody, PanelRow} from "@wordpress/components";
 import StarRating from "../../components/StarRating";
+import React from "react";
+import {BlockSettings} from "./BlockSettings";
 
 
 
@@ -36,21 +45,20 @@ import StarRating from "../../components/StarRating";
 export default function Edit(props) {
 	// const attributes = props.attributes;
 	const {attributes, setAttributes} = props
+	const divStyles = {
+		borderColor: attributes.borderColor,
+		color: attributes.textColor
+	}
+
 	return (
-		<div { ...useBlockProps() }>
-			<div className="stars">
-				<SelectControl
-					label="Select a Rating"
-					value ={attributes.stars}
-					onChange={stars => setAttributes({stars:parseInt(stars)})}
-					options={[
-					{value: 1, label:'★'},
-					{value: 2, label:'★★'},
-					{value: 3, label:'★★★'},
-					{value: 4, label:'★★★★'},
-					{value: 5, label:'★★★★★'},
-				]}
-				/>
+		<div { ...useBlockProps({className: attributes.backgroundColorClass, style: divStyles}) }  >
+			<BlockSettings
+				attributes={attributes}
+				setAttributes={setAttributes}
+			/>
+
+			<div className="stars" >
+
 				<StarRating rating={attributes.stars} setRating={stars => setAttributes({stars:parseInt(stars)})} />
 
 			</div>
@@ -80,12 +88,12 @@ export default function Edit(props) {
 
 				</div>
 				<div className="text">
-					<PlainText cassName ="author"
+					<PlainText className ="author"
 							   placeholder="Sky the Cat"
 							   value={attributes.author}
 							   onChange={author => setAttributes({author})}
 					/>
-					<PlainText cassName ="location"
+					<PlainText className ="location"
 							   placeholder="My Room"
 							   value={attributes.location}
 							   onChange={location => setAttributes({location})}
