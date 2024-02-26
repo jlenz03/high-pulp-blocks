@@ -10,9 +10,29 @@ function addBorderAttributes(settings, name) {
 		default: '',
 	}
 
+	settings.attributes.borderPadding = {
+		type: 'number',
+		default: '10',
+	}
+
+	settings.attributes.borderWidth = {
+		type: 'number',
+		default: '5',
+	}
+
+	settings.attributes.borderRadius = {
+		type: 'number',
+		default: '0',
+	}
+
+	settings.attributes.borderColor = {
+		type: 'string',
+		default: '',
+	}
+
 	// (modify any additional settings)
 
 	return settings;
 }
 
-addFilter('blocks.registerBlockType', 'your-plugin-name/border-control/add-border-attributes', addBorderAttributes);
+addFilter('blocks.registerBlockType', 'jl/border-control/add-border-attributes', addBorderAttributes);

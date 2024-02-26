@@ -27,7 +27,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 function high_pulp_blocks_high_pulp_blocks_block_init() {
 	register_block_type( __DIR__ . '/build/blocks/testimonial' );
 	register_block_type( __DIR__ . '/build/blocks/staff-list' );
+	register_block_type( __DIR__ . '/build/filters/border-control' );
 	//add for every block in this plugin
 
 }
 add_action( 'init', 'high_pulp_blocks_high_pulp_blocks_block_init' );
+//include our filters
+include "filters.php";
