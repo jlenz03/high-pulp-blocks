@@ -17,8 +17,8 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 export default function save() {
 	return (
-		<p { ...useBlockProps.save() }>
-			{ 'Staff Find – hello from the saved content!' }
-		</p>
+		<div { ...useBlockProps.save() }>
+			Loading...
+		</div>
 	);
 }

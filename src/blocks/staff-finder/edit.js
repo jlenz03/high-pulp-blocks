@@ -31,8 +31,8 @@ import './editor.scss';
  */
 export default function Edit() {
 	return (
-		<p { ...useBlockProps() }>
-			{ __( 'Staff Find – hello from the editor!', 'staff-finder' ) }
-		</p>
+		<div { ...useBlockProps() }>
+			Staff Finder will display here
+		</div>
 	);
 }
