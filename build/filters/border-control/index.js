@@ -51,7 +51,7 @@ function blockWrapper(WrappedBlock) {
       }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.PanelRow, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_3__.PanelColorSettings, {
         title: "Colors",
         colorSettings: [{
-          label: "Card Color",
+          label: "Border Color",
           value: attributes.borderColor,
           onChange: borderColor => setAttributes({
             borderColor

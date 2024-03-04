@@ -31,7 +31,7 @@ function blockWrapper(WrappedBlock) {
 									title="Colors"
 									colorSettings={[
 										{
-											label: "Card Color",
+											label: "Border Color",
 											value: attributes.borderColor,
 											onChange: borderColor => setAttributes({borderColor})
 										},

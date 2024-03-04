@@ -34,3 +34,4 @@ function high_pulp_blocks_high_pulp_blocks_block_init() {
 add_action( 'init', 'high_pulp_blocks_high_pulp_blocks_block_init' );
 //include our filters
 include "filters.php";
+include "patterns.php";

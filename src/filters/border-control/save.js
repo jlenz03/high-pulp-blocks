@@ -4,7 +4,8 @@ function addBorderDiv(element, blockType, attributes) {
 	let divStyles = {
 		borderStyle: attributes.borderStyle || 'none',
 		borderWidth: attributes.borderWidth,
-		borderColor: attributes.borderRadius,
+		borderColor: attributes.borderColor,
+		borderRadius: attributes.borderRadius,
 	}
 
 	// WARNING!!!
