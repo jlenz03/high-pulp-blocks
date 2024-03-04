@@ -31,7 +31,7 @@ class BlockApp extends (react__WEBPACK_IMPORTED_MODULE_0___default().Component) 
     super(props);
 
     //ajax call
-    fetch('/wp-json/wp/v2/staff').then(response => response.json()).then(json => {
+    fetch('/wp-json/wp/v2/staff?_embed').then(response => response.json()).then(json => {
       console.log(json);
       this.setState({
         staff: json,
@@ -116,7 +116,29 @@ class StaffListItem extends (react__WEBPACK_IMPORTED_MODULE_0___default().Compon
       person
     } = this.props;
     //const person = this.props.person
-    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("li", null, person.title.rendered);
+
+    return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+      className: "flip-card",
+      href: person.link
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "flip-card-inner"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "flip-card-front"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+      src: person._embedded['wp:featuredmedia']['0'].source_url,
+      alt: ""
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "flip-card-back"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", {
+      className: "name"
+    }, person.title.rendered), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
+      className: "position"
+    }, person.acf.staff_position), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "bio",
+      dangerouslySetInnerHTML: {
+        __html: person.content.rendered
+      }
+    }))));
   }
 }
 

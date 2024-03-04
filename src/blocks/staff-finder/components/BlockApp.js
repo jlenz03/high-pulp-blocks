@@ -11,7 +11,7 @@ export default class BlockApp extends React.Component {
 		super(props);
 
 		//ajax call
-		fetch('/wp-json/wp/v2/staff')
+		fetch('/wp-json/wp/v2/staff?_embed')
 			.then(response => response.json())
 		.then(json => {
 			console.log(json);
