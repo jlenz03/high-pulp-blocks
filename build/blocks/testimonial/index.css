@@ -19,5 +19,8 @@ wp-block-jl-testimonial textarea, wp-block-jl-testimonial input[type=text] {
 .stars .star.off {
   color: grey;
 }
+.stars.readonly {
+  pointer-events: none;
+}
 
 /*# sourceMappingURL=index.css.map*/

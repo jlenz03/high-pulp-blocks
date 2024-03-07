@@ -360,12 +360,13 @@ __webpack_require__.r(__webpack_exports__);
 
 function StarRating({
   rating,
-  setRating
+  setRating,
+  readonly
 }) {
   const [hover, setHover] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(rating || 0);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "stars"
-  }, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: readonly ? 'readonly stars' : 'stars'
+  }, "r", rating, [1, 2, 3, 4, 5].map(star => (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: star <= hover ? 'star on' : 'star off',
     onClick: () => {
       setRating(star);

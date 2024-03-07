@@ -1,0 +1,17 @@
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/components/StarRating.scss ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
+.stars .star:hover {
+  cursor: pointer;
+}
+.stars .star.on {
+  color: #FFD700;
+}
+.stars .star.off {
+  color: grey;
+}
+.stars.readonly {
+  pointer-events: none;
+}
+
+/*# sourceMappingURL=view.css.map*/
