@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "jl/submit-review",
+	"version": "0.1.0",
+	"title": "Submit Review",
+	"category": "design",
+	"icon": "id",
+	"description": "A form to let users submit a review.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "submit-review",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js",
+	"keywords": ["jl", "reviews", "pulpy"]
+}

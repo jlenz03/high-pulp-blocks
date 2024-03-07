@@ -1,0 +1,41 @@
+/*!************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/blocks/submit-review/style.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************/
+.wp-block-jl-submit-review .new-review-form {
+  background-color: aliceblue;
+  padding: 20px;
+  max-width: 300px;
+  box-shadow: 1px 1px 4px #bbb;
+  border-radius: 4px;
+}
+.wp-block-jl-submit-review .new-review-form input, .wp-block-jl-submit-review .new-review-form textarea {
+  width: 100%;
+}
+.wp-block-jl-submit-review .error-msg {
+  background-color: #fc1a1a;
+  padding: 30px;
+  color: white;
+}
+.wp-block-jl-submit-review .review-card {
+  width: 100%;
+  padding: 10px 15px;
+  margin: 10px;
+  border: 1px solid #888;
+  box-shadow: 1px 1px 3px #bbb;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wp-block-jl-submit-review .review-card .review-title {
+  font-weight: bold;
+}
+.wp-block-jl-submit-review .review-card .review-content {
+  width: 100%;
+}
+.wp-block-jl-submit-review .review-card .stars {
+  font-size: 1.5em;
+}
+
+/*# sourceMappingURL=style-index.css.map*/

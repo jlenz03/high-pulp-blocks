@@ -1,0 +1,56 @@
+// TODO: Import StarRating CSS and make readonly option with
+// .stars.readonly {
+//	pointer-events: none;
+//	.star {
+//		cursor: default;
+//	}
+
+.wp-block-jl-submit-review {
+	.new-review-form {
+		background-color: aliceblue;
+		padding: 20px;
+		max-width: 300px;
+		box-shadow: 1px 1px 4px #bbb;
+		border-radius: 4px;
+
+		input, textarea {
+			width: 100%;
+		}
+	}
+
+	.error-msg {
+		background-color: #fc1a1a;
+		padding: 30px;
+		color: white;
+	}
+
+	.review-list {
+
+	}
+
+	.review-card {
+		width: 100%;
+		padding: 10px 15px;
+		margin: 10px;
+		border: 1px solid #888;
+		box-shadow: 1px 1px 3px #bbb;
+		border-radius: 4px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+
+		.review-title {
+			font-weight: bold;
+		}
+
+		.review-content {
+			width: 100%;
+		}
+
+		.stars {
+			//text-align: center;
+			font-size: 1.5em;
+		}
+	}
+}
