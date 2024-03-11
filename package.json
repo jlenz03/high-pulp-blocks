@@ -14,7 +14,8 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
-		"env": "wp-env"
+		"env": "wp-env",
+	  "deploy": "wp-scripts build && wp-scripts plugin-zip"
 	},
 	"devDependencies": {
 		"@wordpress/block-editor": "^12.19.1",

@@ -404,7 +404,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const blocks = document.querySelectorAll('.wp-block-jl-submit-review');
+const blocks = document.querySelectorAll('.wp-block-jl-sims-suggestion');
 blocks.forEach(block => {
   (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(block).render((0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_BlockApp__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 });
